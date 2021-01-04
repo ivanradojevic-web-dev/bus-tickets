@@ -9,6 +9,11 @@ class Station extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+    ];
+
+    public $timestamps = false;
+
     public function lines()
     {
         return $this->belongsToMany(Line::class);

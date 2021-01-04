@@ -9,6 +9,11 @@ class Line extends Model
 {
     use HasFactory;
 
+    protected $guarded = [
+    ];
+
+    public $timestamps = false;
+
     public function stations()
     {
         return $this->belongsToMany(Station::class)->withPivot('order');
