@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\DB;
+use App\Models\Station;
+use App\Models\Line;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,11 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+	$line = Line::find(1);
+
+    return $line->stations()->orderBy('pivot_order')->get();
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
