@@ -16,6 +16,6 @@ class Line extends Model
 
     public function stations()
     {
-        return $this->belongsToMany(Station::class)->withPivot('order');
+        return $this->belongsToMany(Station::class)->withPivot('order', 'price');
     }
 }

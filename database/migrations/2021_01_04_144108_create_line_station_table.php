@@ -18,7 +18,7 @@ class CreateLineStationTable extends Migration
             $table->foreignId('line_id')->constrained();
             $table->foreignId('station_id')->constrained();
             $table->integer('order');
-            //$table->integer('price');
+            $table->integer('price');
             $table->timestamps();
         });
     }

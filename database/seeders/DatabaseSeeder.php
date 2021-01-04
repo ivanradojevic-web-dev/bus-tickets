@@ -32,12 +32,12 @@ class DatabaseSeeder extends Seeder
 
         $line1 = Line::find(1);
         $line1->stations()->attach([
-        	1 => ['order' => 1],
-        	2 => ['order' => 4],
-        	3 => ['order' => 2],
-        	4 => ['order' => 5],
-        	5 => ['order' => 3],
-        	6 => ['order' => 6]
+        	1 => ['order' => 1, 'price' => 0],
+        	2 => ['order' => 4, 'price' => 15],
+        	3 => ['order' => 2, 'price' => 3],
+        	4 => ['order' => 5, 'price' => 60],
+        	5 => ['order' => 3, 'price' => 5],
+        	6 => ['order' => 6, 'price' => 90]
         ]);
     }
 }
