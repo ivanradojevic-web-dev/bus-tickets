@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Line extends Model
+class Timetable extends Model
 {
     use HasFactory;
 
@@ -14,13 +14,13 @@ class Line extends Model
 
     public $timestamps = false;
 
-    public function stations()
-    {
-        return $this->belongsToMany(Station::class)->withPivot('order', 'price');
-    }
+    protected $casts = [
+        'start_day' => 'datetime',
+        'end_day' => 'datetime',
+    ];
 
-    public function timetables()
+    public function line()
     {
-        return $this->hasMany(Timetable::class);
+        return $this->belongsTo(Line::class);
     }
 }

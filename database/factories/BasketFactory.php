@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Line;
+use App\Models\Basket;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LineFactory extends Factory
+class BasketFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Line::class;
+    protected $model = Basket::class;
 
     /**
      * Define the model's default state.
@@ -22,7 +22,7 @@ class LineFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
+            //
         ];
     }
 }
