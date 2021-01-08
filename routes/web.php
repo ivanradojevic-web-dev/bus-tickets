@@ -51,6 +51,7 @@ Route::prefix('admiral')->group(function () {
     
     Route::prefix('stations')->group(function () {
         Route::get('', [StationController::class, 'index'])->name('admiral-stations.index');
+        Route::get('/create', [StationController::class, 'create'])->name('admiral-stations.create');
     });
     
 });

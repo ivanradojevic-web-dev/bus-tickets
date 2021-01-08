@@ -9,7 +9,7 @@
               	<a class="flex items-center space-x-2" href="#" wire:click.prevent="sortBy('name')">
                 	@if ($sortField != 'name')
                 		<span>Name</span>
-                 		<x-zondicon-code class="w-4 h-4 transform rotate-90" />
+                 		<x-zondicon-code class="w-4 h-4 text-gray-400 transform rotate-90" />
                 	@elseif($sortDirection) 
                 		<span>Name</span>
                  		<x-zondicon-cheveron-up class="w-4 h-4" />
@@ -25,7 +25,7 @@
                 <a class="flex items-center space-x-2" href="#" wire:click.prevent="sortBy('country')">
                 	@if ($sortField != 'country')
                 		<span>Country</span>
-                 		<x-zondicon-code class="w-4 h-4 transform rotate-90" />
+                 		<x-zondicon-code class="w-4 h-4 text-gray-400 transform rotate-90" />
                 	@elseif($sortDirection) 
                 		<span>Country</span>
                  		<x-zondicon-cheveron-up class="w-4 h-4" />
@@ -48,15 +48,17 @@
             <tr class="hover:bg-orange-50">
               
               <td class="px-6 py-3 whitespace-nowrap">
-                <div class="text-sm text-gray-900">{{ $station->name }}</div>
+                <div class="text-sm text-gray-800">{{ $station->name }}</div>
               </td>
 
-              <td class="px-6 py-3 whitespace-nowrap text-sm text-gray-500">
+              <td class="px-6 py-3 whitespace-nowrap text-sm text-gray-800">
                 {{ $station->country }}
               </td>
 
               <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
-                <a href="#" class="text-green-600 hover:text-green-900">Edit</a>
+                <a href="#" class="flex justify-end">
+                  <x-zondicon-edit-pencil class="w-4 h-4 text-green-400" />
+                </a>
               </td>
             </tr>
 @endforeach          

@@ -11,6 +11,11 @@ class StationController extends Controller
     {
         //$stations = Station::all();
 
-        return view('stations');
+        return view('admiral.stations.index');
+    }
+
+    public function create()
+    {
+        return view('admiral.stations.create');
     }
 }

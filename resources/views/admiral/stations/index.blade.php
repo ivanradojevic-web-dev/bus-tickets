@@ -19,7 +19,7 @@
 
                         <!-- add button -->
                         <div class="flex justify-end mb-4 px-4 mx-8 lg:mx-16 xl:mx-32 2xl:mx-64  ">
-                            <a href="#">
+                            <a href="{{ route('admiral-stations.create') }}">
                                 <button class="w-24 bg-green-500 rounded shadow py-2 px-3 text-white font-bold">
                                     Add
                                 </button>
@@ -34,4 +34,4 @@
 
                 </div>
 
-@endsection                
+@endsection           
