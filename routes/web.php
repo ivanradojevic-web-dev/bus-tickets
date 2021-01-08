@@ -6,6 +6,8 @@ use App\Models\Line;
 use App\Models\Timetable;
 use Carbon\Carbon;
 
+use App\Http\Controllers\StationController;
+
 use Illuminate\Support\Facades\DB;
 
 /*
@@ -43,11 +45,15 @@ Route::get('/admiral', function () { return view('ladogaboard'); })->name('admir
 Route::get('/admiral/form', function () { return view('form'); })->name('form');
 Route::get('/admiral/table', function () { return view('table'); })->name('table');
 
-Route::get('/admiral/stations', function () { 
-	$stations = Station::all();
 
-	return view('stations', compact('stations'));
-})->name('stations.index');
+
+Route::prefix('admiral')->group(function () {
+    
+    Route::prefix('stations')->group(function () {
+        Route::get('', [StationController::class, 'index'])->name('admiral-stations.index');
+    });
+    
+});
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

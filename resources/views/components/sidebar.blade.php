@@ -30,8 +30,8 @@
                         <li class="uppercase tracking-widest font-normal text-xs ml-4 mt-4">
                             Headline with icons
                         </li>
-                        <li class="{{ request()->routeIs('stations.index') ? 'border-l-4 border-orange-500 text-white' : '' }}">
-                            <a href="{{ route('stations.index') }}" class="hover:text-white flex items-center ml-4 mt-4">
+                        <li class="{{ request()->routeIs('admiral-stations.index') ? 'border-l-4 border-orange-500 text-white' : '' }}">
+                            <a href="{{ route('admiral-stations.index') }}" class="hover:text-white flex items-center ml-4 mt-4">
                                 <x-zondicon-map class="w-4 h-4 " />
                                 <span class="ml-2">Stations</span>
                             </a>     
