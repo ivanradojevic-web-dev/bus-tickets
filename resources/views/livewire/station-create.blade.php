@@ -1,5 +1,20 @@
+<div>
+
+        
+        @if (session('station-saved'))
+        <div class="py-2 px-4 mt-2 flex justify-between items-center mx-8 lg:mx-16 xl:mx-32 2xl:mx-64 bg-green-500 font-semibold bg-opacity-75 text-white rounded shadow">
+            <div class="flex items-center space-x-4">
+                <x-zondicon-checkmark-outline class="w-4 h-4" />
+                <p>{{ session('station-saved') }}</p>
+            </div>
+            <button>x</button>
+        </div>
+        @endif
+        
 
         <div class="mt-2 flex flex-col mx-8 lg:mx-16 xl:mx-32 2xl:mx-64 bg-white bg-opacity-75  border-1 border-gray-400 rounded shadow">
+
+            
                         
           <form wire:submit.prevent="addStation">
 
@@ -23,7 +38,7 @@
                             
                             <div class="w-full mb-6">
                                 <label for="name" class="block text-sm mb-2 text-gray-800 ">Insert Name</label>
-                                <input wire:model.lazy="name" id="name" type="text" value="" class="w-full text-base border-2 border-gray-300
+                                <input wire:model.debounce.500ms="name" id="name" type="text" value="" class="w-full text-base border-2 border-gray-300
                                 @error('name') border-red-400 @enderror rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500">
                                 @error('name')
                                 	<p class="text-red-400">{{ $message }}</p>
@@ -56,3 +71,5 @@
           </form>
 
         </div>  
+
+</div>

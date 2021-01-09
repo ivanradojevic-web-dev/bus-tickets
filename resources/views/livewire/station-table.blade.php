@@ -47,17 +47,18 @@
 @foreach ($stations as $station)
             <tr class="hover:bg-orange-50">
               
-              <td class="px-6 py-3 whitespace-nowrap">
-                <div class="text-sm text-gray-800">{{ $station->name }}</div>
+              <td class="w-5/15 px-6 py-3 whitespace-nowrap">
+                <p class="truncate text-sm text-gray-800">{{ Str::limit($station->name, 24) }}</p>
               </td>
 
-              <td class="px-6 py-3 whitespace-nowrap text-sm text-gray-800">
-                {{ $station->country }}
+              <td class="w-5/12 px-6 py-3 whitespace-nowrap">
+                <p class="truncate text-sm text-gray-800">{{ Str::limit($station->country, 24) }}</p>
               </td>
 
-              <td class="px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
-                <a href="#" class="flex justify-end">
-                  <x-zondicon-edit-pencil class="w-4 h-4 text-green-400" />
+              <td class="w-2/12 px-6 py-3 whitespace-nowrap text-right text-sm font-medium">
+                <a href="#" class="flex justify-end items-center space-x-2">
+                  <x-zondicon-edit-pencil class="w-4 h-4 text-green-300 hover:text-green-400" />
+                  <x-zondicon-trash class="w-4 h-4 text-red-300 hover:text-red-400" />
                 </a>
               </td>
             </tr>

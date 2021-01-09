@@ -23,11 +23,16 @@ class StationCreate extends Component
     public function addStation()
     {
         $data = $this->validate();
-
+  
         Station::create([
             'name' => $this->name,
             'country' => $this->country,           
         ]);
+
+        $this->name = '';
+        $this->country = '';
+
+        session()->flash('station-saved', 'Station successfully saved.'); 
     }
 
     public function render()
