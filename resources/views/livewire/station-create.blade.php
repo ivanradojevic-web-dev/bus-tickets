@@ -13,7 +13,7 @@
                     <div class="w-full lg:w-1/3 pr-4">
                         <h3 class="text-lg mb-4">Create New Station</h3>
                             <p class="text-sm text-gray-800 leading-normal mb-4">
-                                Insert name of the station, first letter must be capital. Select one country from the list, where is the station.
+                                Insert the name of a bus station and select country from the list.
                             </p>
                     </div>
 
@@ -23,15 +23,23 @@
                             
                             <div class="w-full mb-6">
                                 <label for="name" class="block text-sm mb-2 text-gray-800 ">Insert Name</label>
-                                <input wire:model="name" id="name" type="text" value="" class="w-full text-base border-2 border-gray-300
+                                <input wire:model.lazy="name" id="name" type="text" value="" class="w-full text-base border-2 border-gray-300
                                 @error('name') border-red-400 @enderror rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500">
                                 @error('name')
                                 	<p class="text-red-400">{{ $message }}</p>
                                 @enderror
                             </div>
                             <div class="w-full mb-6">
-                                <label for="cad_mailing_address" class="block text-sm mb-2 text-gray-800 ">Select Country</label>
-                                <input id="protest_address" type="text" value="123 Main St., Galveston, TX 77555" class="w-full text-base border-2 border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500 ">
+                                <label for="country" class="block text-sm mb-2 text-gray-800 ">Select Country</label>
+                                <select wire:model.lazy="country" id="country" class="w-full text-base border-2 border-gray-300 @error('country') border-red-400 @enderror rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500 ">
+                                		<option value=""></option>
+                                	@foreach (App\Models\Station::COUNTRIES as $value)
+                                        <option value="{{ $value }}">{{ $value }}</option>
+                                    @endforeach
+                               	</select>
+                               	@error('country')
+                                	<p class="text-red-400">{{ $message }}</p>
+                                @enderror
                             </div>
                             
                         </div>

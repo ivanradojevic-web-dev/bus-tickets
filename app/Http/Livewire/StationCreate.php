@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use App\Models\Station;
 
 class StationCreate extends Component
 {
@@ -10,7 +11,7 @@ class StationCreate extends Component
 	public $country;
 
 	protected $rules = [
-        'name' => ['required'], 
+        'name' => ['required', 'unique:stations'], 
         'country' => ['required'],
     ];
 
@@ -22,6 +23,11 @@ class StationCreate extends Component
     public function addStation()
     {
         $data = $this->validate();
+
+        Station::create([
+            'name' => $this->name,
+            'country' => $this->country,           
+        ]);
     }
 
     public function render()

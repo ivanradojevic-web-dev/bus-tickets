@@ -18,4 +18,8 @@ class Station extends Model
     {
         return $this->belongsToMany(Line::class);
     }
+
+    const COUNTRIES = [
+        'Srbija', 'Austrija','Nemačka','Švajcarska',
+    ];
 }
