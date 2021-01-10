@@ -16,11 +16,9 @@ class StationTable extends Component
 
     //editing
     public $showEditModal = false;
-    public $editing = [
-        'id' => '',
-        'name' => '',
-        'country' => '',
-    ];
+    public $editingId = '';
+    public $name = '';
+    public $editingCountry = '';
 
 	public function sortBy($field)
     {
@@ -34,9 +32,9 @@ class StationTable extends Component
 
     public function edit(Station $station)
     {
-        $this->editing['id'] = $station->id;
-        $this->editing['name'] = $station->name;  
-        $this->editing['country'] = $station->country;
+        $this->editingId = $station->id;
+        $this->name = $station->name;  
+        $this->editingCountry = $station->country;
 
         $this->showEditModal = true;
     }
@@ -44,13 +42,13 @@ class StationTable extends Component
     public function putStation()
     {
         $this->validate([
-            'editing.name' => ['required'], 
-            'editing.country' => ['required'], 
+            'name' => 'sometimes|required|unique:stations,name,'.$this->editingId, 
+            'editingCountry' => ['required'], 
         ]);
 
-        $station = Station::find($this->editing['id']);
-        $station->name = $this->editing['name'];
-        $station->country = $this->editing['country'];
+        $station = Station::find($this->editingId);
+        $station->name = $this->name;
+        $station->country = $this->editingCountry;
         $station->save();
 
         return $this->showEditModal = false;

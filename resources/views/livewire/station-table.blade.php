@@ -1,5 +1,5 @@
 <div class="flex justify-center mx-8 lg:mx-16 xl:mx-32 2xl:mx-64  mt-2">      
-      
+
     <div class="w-full flex-col space-y-4">
 
         <table class="min-w-full divide-y divide-gray-300 border-1 border-gray-400 rounded shadow">
@@ -76,7 +76,7 @@
 </div>
     </div>
 
-<!-- form modal -->
+<!-- update form modal -->
 <form wire:submit.prevent="putStation">
 <x-modal wire:model.defer="showEditModal"> 
 
@@ -86,20 +86,20 @@
         <div class="flex flex-wrap">                        
             <div class="w-full mb-6">
                                 <label for="name" class="block text-sm mb-2 text-gray-800 ">Name</label>
-                                <input wire:model.debounce.500ms="editing.name" id="name" type="text" value="" class="w-full text-base border-2 border-gray-300
-                                @error('editing.name') border-red-400 @enderror rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500">
-                                @error('editing.name')
+                                <input wire:model="name" id="name" type="text" value="" class="w-full text-base border-2 border-gray-300
+                                @error('name') border-red-400 @enderror rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500">
+                                @error('name')
                                     <p class="text-red-400">{{ $message }}</p>
                                 @enderror   
             </div>
             <div class="w-full mb-6">
                                 <label for="country" class="block text-sm mb-2 text-gray-800 ">Select Country</label>
-                                <select wire:model.lazy="editing.country" id="country" class="w-full text-base border-2 border-gray-300 @error('editing.country') border-red-400 @enderror rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500 ">
+                                <select wire:model="editingCountry" id="country" class="w-full text-base border-2 border-gray-300 @error('editingCountry') border-red-400 @enderror rounded px-3 py-2 focus:outline-none focus:ring-green-500 focus:border-green-500 ">
                                     @foreach (App\Models\Station::COUNTRIES as $value)
                                         <option value="{{ $value }}">{{ $value }}</option>
                                     @endforeach
                                 </select>
-                                @error('editing.country')
+                                @error('editingCountry')
                                     <p class="text-red-400">{{ $message }}</p>
                                 @enderror
             </div>                           

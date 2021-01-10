@@ -1,6 +1,6 @@
 <div>
 
-        
+    <!-- session success message -->
         @if (session('station-saved'))
         <div class="py-2 px-4 mt-2 flex justify-between items-center mx-8 lg:mx-16 xl:mx-32 2xl:mx-64 bg-green-500 font-semibold bg-opacity-75 text-white rounded shadow">
             <div class="flex items-center space-x-4">
@@ -12,17 +12,18 @@
         @endif
         
 
-        <div class="mt-2 flex flex-col mx-8 lg:mx-16 xl:mx-32 2xl:mx-64 bg-white bg-opacity-75  border-1 border-gray-400 rounded shadow">
+
+        <div class=" mt-2 flex flex-col mx-8 lg:mx-16 xl:mx-32 2xl:mx-64 bg-white bg-opacity-75  border-1 border-gray-400 rounded shadow">
 
             
                         
           <form wire:submit.prevent="addStation">
 
             <!-- card -->
-            <div class="px-6 pt-8 pb-4 ">
+            <div class=" px-6 pt-8 pb-4 ">
 
                 <!-- flex-->
-                <div class="flex flex-col lg:flex-row">
+                <div class="w-full flex flex-col lg:flex-row">
 
                     <!-- left dteails -->
                     <div class="w-full lg:w-1/3 pr-4">
@@ -71,5 +72,6 @@
           </form>
 
         </div>  
+
 
 </div>

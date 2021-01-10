@@ -1,7 +1,7 @@
 @extends('admiral')
 
 @section('content')
-<div class="flex flex-col">
+<div class="w-full  flex flex-col">
 
     <!-- overflow -->
     <div class="content-spotify overflow-y-auto py-8 ">
@@ -24,7 +24,10 @@
                                     Back
                                 </button>
                             </a>
-                        </div>           
+                        </div>  
+
+        
+                                 
 
         
 
