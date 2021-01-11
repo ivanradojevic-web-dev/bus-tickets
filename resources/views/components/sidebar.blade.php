@@ -33,14 +33,15 @@
                         <li class="{{ request()->routeIs('admiral-stations*') ? 'border-l-4 border-orange-500 text-white' 
                             : '' }}">
                             <a href="{{ route('admiral-stations.index') }}" class="hover:text-white flex items-center ml-4 mt-4">
-                                <x-zondicon-map class="w-4 h-4 " />
+                                <x-zondicon-location class="w-4 h-4 " />
                                 <span class="ml-2">Stations</span>
                             </a>     
                         </li>
-                        <li class="">
-                            <a href="#" class="hover:text-white flex items-center ml-4 mt-4">
-                                <x-zondicon-view-column class="w-4 h-4 " />
-                                <span class="ml-2 " >Table</span>
+                        <li class="{{ request()->routeIs('admiral-lines*') ? 'border-l-4 border-orange-500 text-white' 
+                            : '' }}">
+                            <a href="{{ route('admiral-lines.index') }}" class="hover:text-white flex items-center ml-4 mt-4">
+                                <x-zondicon-directions class="w-4 h-4 " />
+                                <span class="ml-2">Lines</span>
                             </a>     
                         </li>
                         <li class="">

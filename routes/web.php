@@ -7,6 +7,7 @@ use App\Models\Timetable;
 use Carbon\Carbon;
 
 use App\Http\Controllers\StationController;
+use App\Http\Controllers\LineController;
 
 use Illuminate\Support\Facades\DB;
 
@@ -52,6 +53,11 @@ Route::prefix('admiral')->group(function () {
     Route::prefix('stations')->group(function () {
         Route::get('', [StationController::class, 'index'])->name('admiral-stations.index');
         Route::get('/create', [StationController::class, 'create'])->name('admiral-stations.create');
+    });
+
+    Route::prefix('lines')->group(function () {
+        Route::get('', [LineController::class, 'index'])->name('admiral-lines.index');
+        Route::get('/create', [LineController::class, 'create'])->name('admiral-lines.create');
     });
     
 });
