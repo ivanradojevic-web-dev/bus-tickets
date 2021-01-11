@@ -7,11 +7,15 @@
             <tr>
 
               <th scope="col" class="px-6 py-3 text-left  font-semi-bold text-gray-600 tracking-wider">
-              	jbhoihu 
+              	Order 
               </th>
 
               <th scope="col" class="px-6 py-3 text-left  font-semi-bold text-gray-600  tracking-wider">
-               hiuhph
+               Station
+              </th>
+
+              <th scope="col" class="px-6 py-3 text-left  font-semi-bold text-gray-600  tracking-wider">
+               Price From Starting Station
               </th>
 
               <th scope="col" class="relative px-6 py-4">
@@ -24,23 +28,20 @@
 @foreach ($stations as $station)
             <tr class="hover:bg-orange-50">
               
-              <td class="w-5/15 px-6 py-3 whitespace-nowrap">
+              <td class="w-2/12 px-6 py-3 whitespace-nowrap">
+                <p class="truncate text-sm text-gray-800">{{ $station->pivot->order }}</p>
+              </td>
+
+              <td class="w-4/12 px-6 py-3 whitespace-nowrap">
                 <p class="truncate text-sm text-gray-800">{{ Str::limit($station->name, 24) }}</p>
               </td>
 
-              <td class="w-5/12 px-6 py-3 whitespace-nowrap">
-                <p class="truncate text-sm text-gray-800">...</p>
+              <td class="w-4/12 px-6 py-3 whitespace-nowrap">
+                <p class="truncate text-sm text-gray-800">{{ $station->pivot->price }}</p>
               </td>
 
               <td class="w-2/12 px-6 py-3 whitespace-nowrap text-right text-sm font-medium ">
-                <div class="flex justify-end items-center space-x-2">
-                <a wire:click.prevent="edit( {{ $station->id }} )" href="#" >
-                  <x-zondicon-edit-pencil class="w-4 h-4 text-green-300 hover:text-green-400" />
-                </a>
-                <a href="#" class="">
-                  <x-zondicon-trash class="w-4 h-4 text-red-300 hover:text-red-400" />
-                </a>
-               </div>
+                
               </td>
             </tr>
 @endforeach          

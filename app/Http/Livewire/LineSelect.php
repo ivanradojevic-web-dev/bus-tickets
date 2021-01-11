@@ -5,7 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Line;
 
-class LineStations extends Component
+class LineSelect extends Component
 {
 	public $line;
 
@@ -16,8 +16,6 @@ class LineStations extends Component
 
     public function render()
     {
-        return view('livewire.line-stations', [
-        	'stations' => $this->line->stations()->orderBy('pivot_order')->get(),
-        ]);
+        return view('livewire.line-select');
     }
 }
