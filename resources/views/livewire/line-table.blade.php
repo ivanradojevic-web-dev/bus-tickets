@@ -59,11 +59,8 @@
 
               <td class="w-2/12 px-6 py-3 whitespace-nowrap text-right text-sm font-medium ">
                 <div class="flex justify-end items-center space-x-2">
-                <a  href="#" >
-                  <x-zondicon-edit-pencil class="w-4 h-4 text-green-300 hover:text-green-400" />
-                </a>
-                <a href="#" class="">
-                  <x-zondicon-trash class="w-4 h-4 text-red-300 hover:text-red-400" />
+                <a href="{{ route('admiral-lines.stations', $line->id) }}" >
+                  <x-zondicon-view-show class="w-4 h-4 text-orange-300 hover:text-orange-400" />
                 </a>
                </div>
               </td>

@@ -58,6 +58,8 @@ Route::prefix('admiral')->group(function () {
     Route::prefix('lines')->group(function () {
         Route::get('', [LineController::class, 'index'])->name('admiral-lines.index');
         Route::get('/create', [LineController::class, 'create'])->name('admiral-lines.create');
+    Route::get('/{id}/stations', [LineController::class, 'stations'])->name('admiral-lines.stations');    
+    Route::get('/{id}/stations/select', [LineController::class, 'select'])->name('admiral-lines.select');
     });
     
 });
