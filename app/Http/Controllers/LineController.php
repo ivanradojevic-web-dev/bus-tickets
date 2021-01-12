@@ -17,6 +17,7 @@ class LineController extends Controller
         return view('admiral.lines.create');
     }
 
+
     public function stations($id)
     {
     	$line = Line::findOrFail($id);

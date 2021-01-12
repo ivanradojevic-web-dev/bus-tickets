@@ -4,10 +4,13 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Line;
+use App\Models\Station;
 
 class LineSelect extends Component
 {
 	public $line;
+
+	public $selected = [];
 
 	public function mount(Line $line)
     {
@@ -16,6 +19,8 @@ class LineSelect extends Component
 
     public function render()
     {
-        return view('livewire.line-select');
+        return view('livewire.line-select', [
+        	'stations' => Station::get(),
+        ]);
     }
 }
