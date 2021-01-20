@@ -23,4 +23,10 @@ class Timetable extends Model
     {
         return $this->belongsTo(Line::class);
     }
+
+    const PERIOD = [
+        '3' => '3 Months',
+        '6' => '6 Months',
+        '12' => 'One Year',
+    ];
 }

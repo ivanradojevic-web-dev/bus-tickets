@@ -20,15 +20,17 @@ class LineCreate extends Component
 
     public function addLine()
     {
-        $data = $this->validate();
+        $this->validate();
   
-        Line::create([
+        $line = Line::create([
             'name' => $this->name,         
         ]);
 
         $this->name = '';
 
-        session()->flash('line-saved', 'Line successfully saved.'); 
+        session()->flash('line-saved', 'Line successfully saved. Select station for the line'); 
+
+        return redirect()->route('admiral-lines.select', $line->id);
     }
 
     public function render()

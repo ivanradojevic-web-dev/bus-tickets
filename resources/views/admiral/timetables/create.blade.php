@@ -11,27 +11,27 @@
             <ul class="flex text-gray-800 ">
                 <li><a href="{{ url('/admiral') }}" class="font-semibold">Home</a></li>
                 <li><span class="mx-2">/</span></li>
-                <li><a href="{{ route('admiral-lines.index') }}" class="font-semibold">Lines</a></li>
+                <li><a href="{{ route('admiral-timetables.index') }}" class="font-semibold">Timetable</a></li>
                 <li><span class="mx-2">/</span></li>
-            <li><a href="{{ route('admiral-lines.stations', $line->id) }}" class="font-semibold">{{ $line->name }}</a></li>
-                <li><span class="mx-2">/</span></li>
-                <li>Select</li>
+                <li>Create</li>
             </ul>
-        </div>    
+        </div>        
 
-         <!-- backbutton -->
+        <!-- backbutton -->
                         <div class="flex  mb-4 px-4 mx-8 lg:mx-16 xl:mx-32 2xl:mx-64  ">
-                            <a href="{{ route('admiral-lines.stations', $line->id) }}">
+                            <a href="{{ route('admiral-timetables.index') }}">
                                 <button class="w-24 bg-red-300  rounded shadow py-2 px-3 text-white font-bold">
                                     Back
                                 </button>
                             </a>
-                        </div>      
+                        </div>  
 
+        
+                                 
+<livewire:timetable-create />  
+        
 
-<livewire:line-select :line="$line" :selectedstations="$selectedstations"/>        
-
-                    
+                      
 
     </div>
 

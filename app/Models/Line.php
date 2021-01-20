@@ -23,4 +23,6 @@ class Line extends Model
     {
         return $this->hasMany(Timetable::class);
     }
+
+    
 }

@@ -1,15 +1,6 @@
 <div>
 
-    <!-- session success message -->
-        @if (session('line-saved'))
-        <div class="py-2 px-4 mt-2 flex justify-between items-center mx-8 lg:mx-16 xl:mx-32 2xl:mx-64 bg-green-500 font-semibold bg-opacity-75 text-white rounded shadow">
-            <div class="flex items-center space-x-4">
-                <x-zondicon-checkmark-outline class="w-4 h-4" />
-                <p>{{ session('line-saved') }}</p>
-            </div>
-            <button>x</button>
-        </div>
-        @endif
+    
         
 
 

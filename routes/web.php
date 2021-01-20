@@ -8,8 +8,11 @@ use Carbon\Carbon;
 
 use App\Http\Controllers\StationController;
 use App\Http\Controllers\LineController;
+use App\Http\Controllers\TimetableController;
 
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+use Carbon\CarbonPeriod;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +26,28 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-	$line = Line::find(1);
+	$line = Line::find(5);
+    
 
-    return $line->stations()->orderBy('pivot_order')->get();
+
+$days = [7, 1];
+
+$period = CarbonPeriod::between(now(), now()->addMonths(3))->addFilter(function ($date) use ($days) {
+    return in_array($date->dayOfWeekIso, $days);
+});
+
+    return $period;
+    
+
+    //return Station::whereDoesntHave('lines', function($query) use ($line){
+    //    $query->where('line_id', $line->id);
+    //})->get();
+
+    //return $line->stations()->where("station_id", 4)->first();
+    //return Station::with('lines')->get();
+    
+    //return Station::where("name", "Majdanpek")->first()->id;
+
 });
 
 Route::get('/search', function () {
@@ -36,6 +58,14 @@ Route::get('/search', function () {
 		})->get();
 
     return $ok;
+});
+
+Route::get('/kveri', function () {
+    $line = 2;
+    return Timetable::when($line, function($query, $line) {
+        $query->where("line_id", $line);
+    })->get();
+
 });
 
 Route::get('/basket', function () {
@@ -61,6 +91,12 @@ Route::prefix('admiral')->group(function () {
 
         Route::get('/{id}/stations', [LineController::class, 'stations'])->name('admiral-lines.stations');    
         Route::get('/{id}/stations/select', [LineController::class, 'select'])->name('admiral-lines.select');
+        Route::get('/{id}/stations/order', [LineController::class, 'order'])->name('admiral-lines.order');
+    });
+
+    Route::prefix('timetables')->group(function () {
+        Route::get('', [TimetableController::class, 'index'])->name('admiral-timetables.index');
+        Route::get('/create', [TimetableController::class, 'create'])->name('admiral-timetables.create');
     });
     
 });

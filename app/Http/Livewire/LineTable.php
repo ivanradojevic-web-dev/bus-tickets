@@ -31,7 +31,7 @@ class LineTable extends Component
     public function render()
     {
         return view('livewire.line-table', [
-        	'lines' => Line::query()
+        	'lines' => Line::withCount('stations')
         		->when($this->sortField, function ($query) {
         	    $query->orderBy($this->sortField, $this->sortDirection ? 'asc' : 'desc');
         	    })->paginate(10),

@@ -25,7 +25,7 @@
             </tr>
           </thead>
           <tbody class="bg-white bg-opacity-75 divide-y divide-gray-200">
-@foreach ($stations as $station)
+@forelse ($stations as $station)
             <tr class="hover:bg-orange-50">
               
               <td class="w-2/12 px-6 py-3 whitespace-nowrap">
@@ -44,7 +44,19 @@
                 
               </td>
             </tr>
-@endforeach          
+@empty
+            <tr class="" >
+              
+              <td class=" text-center w-12/12 px-6 py-3 whitespace-nowrap" colspan="4">
+                <p class="truncate text-lg text-gray-700">No stations yet. Please 
+                <a href="{{ route('admiral-lines.select', $line->id) }}" class="text-green-500 underline">select</a>
+              stations...</p>
+              </td>
+
+            </tr>
+
+
+@endforelse          
 
           </tbody>
         </table>

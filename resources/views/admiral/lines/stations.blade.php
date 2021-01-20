@@ -26,11 +26,17 @@
                                     Back
                                 </button>
                             </a>
-                            <a href="{{ route('admiral-lines.create') }}">
+                            @if($line->stations()->count() > 0)
+                            <a href="{{ route('admiral-lines.order', $line->id) }}">
                                 <button class="w-24 bg-green-500 rounded shadow py-2 px-3 text-white font-bold">
                                     Edit
                                 </button>
                             </a>
+                            @else
+                                <button class="opacity-50 cursor-not-allowed w-24 bg-green-500 rounded shadow py-2 px-3 text-white font-bold">
+                                    Edit
+                                </button>
+                            @endif
                         </div>
 
 

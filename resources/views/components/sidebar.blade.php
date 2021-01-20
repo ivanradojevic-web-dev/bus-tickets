@@ -44,10 +44,11 @@
                                 <span class="ml-2">Lines</span>
                             </a>     
                         </li>
-                        <li class="">
-                            <a href="#" class="hover:text-white flex items-center ml-4 mt-4">
-                                <x-zondicon-compose class="w-4 h-4 " />
-                                <span class="ml-2 " >Form</span>
+                        <li class="{{ request()->routeIs('admiral-timetables*') ? 'border-l-4 border-orange-500 text-white' 
+                            : '' }}">
+                            <a href="{{ route('admiral-timetables.index') }}" class="hover:text-white flex items-center ml-4 mt-4">
+                                <x-zondicon-time class="w-4 h-4 " />
+                                <span class="ml-2">Timetable</span>
                             </a>     
                         </li>
                     </ul>  

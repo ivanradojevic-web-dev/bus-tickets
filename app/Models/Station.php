@@ -22,4 +22,5 @@ class Station extends Model
     const COUNTRIES = [
         'Srbija', 'Austrija','Nemačka','Švajcarska',
     ];
+
 }
