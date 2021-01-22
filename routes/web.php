@@ -26,8 +26,10 @@ use Carbon\CarbonPeriod;
 */
 
 Route::get('/', function () {
+
 	$line = Line::find(5);
     
+ 
 
 
 $days = [7, 1];
@@ -36,8 +38,9 @@ $period = CarbonPeriod::between(now(), now()->addMonths(3))->addFilter(function 
     return in_array($date->dayOfWeekIso, $days);
 });
 
-    return $period;
-    
+    foreach ($period as  $date) {
+        echo $date->addDay();
+    }
 
     //return Station::whereDoesntHave('lines', function($query) use ($line){
     //    $query->where('line_id', $line->id);

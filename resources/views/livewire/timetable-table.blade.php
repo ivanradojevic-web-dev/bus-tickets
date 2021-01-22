@@ -50,7 +50,7 @@
             <tr class="hover:bg-orange-50">
               
               <td class="w-3/12 px-6 py-3 whitespace-nowrap">
-                <p class="truncate text-sm text-gray-800">{{ $timetable->start_day }}</p>
+                <p class="truncate text-sm text-gray-800">{{ $timetable->start_day->format('d M Y') }}</p>
                 <p class="truncate text-sm text-gray-500">14:00</p>
               </td>
 

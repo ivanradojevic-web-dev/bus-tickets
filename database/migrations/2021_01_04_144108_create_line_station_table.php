@@ -15,10 +15,11 @@ class CreateLineStationTable extends Migration
     {
         Schema::create('line_station', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('line_id')->constrained();
-            $table->foreignId('station_id')->constrained();
+            $table->foreignId('line_id')->constrained()->onDelete('cascade');
+            $table->foreignId('station_id')->constrained()->onDelete('cascade');
             $table->integer('order');
-            $table->integer('price');
+            $table->integer('price')->default(0);
+            $table->integer('time')->default(0);
             $table->timestamps();
         });
     }

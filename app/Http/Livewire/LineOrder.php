@@ -12,6 +12,7 @@ class LineOrder extends Component
 
     public $showSelectModal = false;
     public $station;    //model for create
+    
     public $showDeleteModal = false;
     public $deleteId = ""; 
     //public $notstations;

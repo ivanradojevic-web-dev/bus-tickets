@@ -51,8 +51,8 @@
                 <p class="truncate text-sm text-gray-800">{{ Str::limit($line->name, 24) }}</p>
               </td>
 
-              <td class="w-5/15 px-6 py-3 whitespace-nowrap">
-                <p class="truncate text-sm text-gray-800">{{ Str::limit($line->stations_count, 24) }}</p>
+              <td class="w-5/12 px-6 py-3 whitespace-nowrap">
+                <p class="pl-1 truncate text-sm text-gray-800">{{ Str::limit($line->stations_count, 24) }}</p>
               </td>
 
               <td class="w-2/12 px-6 py-3 whitespace-nowrap text-right text-sm font-medium ">

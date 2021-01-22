@@ -20,6 +20,11 @@ class StationTable extends Component
     public $name = '';
     public $editingCountry = '';
 
+    //delete
+    public $showDeleteModal = false;
+    public $deleteId = "";
+    public $forbiddenMessage;
+
 	public function sortBy($field)
     {
         if ($this->sortField === $field) {
@@ -52,6 +57,25 @@ class StationTable extends Component
         $station->save();
 
         return $this->showEditModal = false;
+    }
+
+    public function deleteModal($id)
+    {
+        $this->deleteId = $id;
+        $this->showDeleteModal = true;    
+    }
+
+    public function deleteStation()
+    {
+        $station = Station::find($this->deleteId);
+        if ( $station->lines()->exists() ) {
+            //session()->flash('station_forbidden', 'Sorry, this station have line');
+            $this->showDeleteModal = false;
+            $this->forbiddenMessage = "Sorry, this station have line";
+        } else {
+            Station::destroy($this->deleteId);
+            $this->showDeleteModal = false; 
+        }
     }
 
     public function render()

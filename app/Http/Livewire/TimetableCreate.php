@@ -34,15 +34,15 @@ class TimetableCreate extends Component
 
         $weekdays = $this->days; //$weekdays = [1,7];
         
-		$period = CarbonPeriod::between(now(), now()->addMonths(3))->addFilter(function ($date) use ($weekdays) {
+		$period = CarbonPeriod::between(now(), now()->addMonths(1))->addFilter(function ($date) use ($weekdays) {
     		return in_array($date->dayOfWeekIso, $weekdays);
 		});
 
 		foreach ($period as $date) {
-    		Timetable::create([
+			Timetable::create([
                 'line_id' => $this->line,
                 'start_day' => $date,
-                'end_day' => $date,
+                'end_day' => $date->copy()->addDay(),	//kžcop jer kao mora nova instanca?
                 'amount' => $this->amount,  
                 'start_time' => 1400,
                 'end_time' => 1500,            

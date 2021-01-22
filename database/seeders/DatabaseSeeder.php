@@ -19,19 +19,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Station::insert([
-            ['name' => 'Kladovo', 'country' => 'Srbija'],
-    		['name' => 'Beograd', 'country' => 'Srbija'],
-    		['name' => 'Negotin', 'country' => 'Srbija'],
+            ['name' => 'Niš', 'country' => 'Srbija'],
+    		['name' => 'Novi Sad', 'country' => 'Srbija'],
     		['name' => 'Beč', 'country' => 'Austrija'],
-    		['name' => 'Zaječar', 'country' => 'Srbija'],
-    		['name' => 'Cirih', 'country' => 'Švajcarska']
+    		['name' => 'Salcburg', 'country' => 'Austrija'],
+            ['name' => 'Beograd', 'country' => 'Srbija'],
+    		['name' => 'Cirih', 'country' => 'Švajcarska'],
+            ['name' => 'Štutgart', 'country' => 'Nemačka'],
+            ['name' => 'Sent Galen', 'country' => 'Švajcarska'],
+            ['name' => 'Kladovo', 'country' => 'Srbija'],
+            ['name' => 'Minhen', 'country' => 'Nemačka'],
         ]);
 
         Line::insert([
-            ['name' => 'Jedan'],
-    		['name' => 'Jedan povratna'],
-    		['name' => 'Dva'],
-            ['name' => 'Dva povratna'],
+            ['name' => 'Kladovo - Cirih'],
+    		['name' => 'Kladovo - Cirih return'],
+    		['name' => 'Niš - Frankfurt'],
+            ['name' => 'Niš - Frankfurt return'],
         ]);
 
         //Line::factory(3)->create();
