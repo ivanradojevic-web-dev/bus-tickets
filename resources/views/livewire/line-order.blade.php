@@ -5,7 +5,7 @@
         <table class="min-w-full divide-y divide-gray-300 border-1 border-gray-400 rounded shadow">
           <thead class="bg-gray-200 ">
             <tr>
-
+@if($stations->count() > 0)
               <th scope="col" class="px-6 py-3 text-left  font-semi-bold text-gray-600 tracking-wider">	
               	<span>Order</span> 
               </th>
@@ -24,7 +24,7 @@
               <th scope="col" class=" px-3 py-3 text-left  font-semi-bold text-gray-600  tracking-wider">
                 <span class="">Sort</span>
               </th>
-
+@endif
             </tr>
           </thead>
 
@@ -40,13 +40,15 @@
                 <p class="truncate text-sm text-gray-800">{{ $station->name }}</p>
               </td>
 
-              <td class="w-1/12 px-6 py-3 whitespace-nowrap text-right text-sm font-medium ">
-                <a wire:click.prevent="deleteModal( {{ $station->id }} )" href="#" class="">
+              <td class="w-1/12  py-3 whitespace-nowrap">
+              <div class="flex justify-end">
+                <a wire:click.prevent="deleteModal( {{ $station->id }} )" href="#" class="">               
                   <x-zondicon-trash class="w-4 h-4  text-red-300 hover:text-red-400" />
                 </a>              
+                </div>
               </td>
 
-              <td wire:sortable.handle class="text-center w-1/12 px-6 py-3 whitespace-nowrap text-right text-sm font-medium ">
+              <td wire:sortable.handle class=" w-1/12 px-6 py-3 whitespace-nowrap">
                 <button class="mr-2 flex items-center space-x-2">               
                   <x-zondicon-queue class="w-4 h-4 text-orange-300 hover:text-orange-400" />               
                </button>

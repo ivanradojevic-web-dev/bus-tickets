@@ -24,5 +24,14 @@ class Line extends Model
         return $this->hasMany(Timetable::class);
     }
 
-    
+    public function haveChild($id)
+    {
+        return $this->where('parent_id', $id)->exists();
+    }
+
+    public function isChild()
+    {
+        return $this->parent_id;
+    }
+
 }

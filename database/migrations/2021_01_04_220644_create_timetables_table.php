@@ -20,6 +20,7 @@ class CreateTimetablesTable extends Migration
             $table->integer('end_time');
             $table->date('start_day');
             $table->date('end_day');
+            $table->boolean('live')->default(false);
             $table->integer('amount')->default(50);
         });
     }

@@ -45,4 +45,11 @@ class LineController extends Controller
 
         return view('admiral.lines.order', compact('line'));
     }
+
+    public function return($id)
+    {
+        $line = Line::findOrFail($id);
+
+        return view('admiral.lines.return', compact('line'));
+    }
 }

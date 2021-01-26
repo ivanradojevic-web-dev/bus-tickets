@@ -32,10 +32,10 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Line::insert([
-            ['name' => 'Kladovo - Cirih'],
-    		['name' => 'Kladovo - Cirih return'],
-    		['name' => 'Niš - Frankfurt'],
-            ['name' => 'Niš - Frankfurt return'],
+            ['name' => 'Kladovo - Cirih', 'parent_id' => null],
+    		['name' => 'Kladovo - Cirih return', 'parent_id' => '1'],
+    		['name' => 'Niš - Frankfurt', 'parent_id' => null],
+            ['name' => 'Niš - Frankfurt return', 'parent_id' => '2'],
         ]);
 
         //Line::factory(3)->create();

@@ -16,6 +16,7 @@ class CreateLinesTable extends Migration
         Schema::create('lines', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->unsignedBigInteger('parent_id')->index()->nullable();
         });
     }
 

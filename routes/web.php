@@ -27,20 +27,20 @@ use Carbon\CarbonPeriod;
 
 Route::get('/', function () {
 
-	$line = Line::find(5);
+	$line = Line::find(1);
     
- 
+ return $line->stations()->orderBy("pivot_order", "desc")->get();
 
 
-$days = [7, 1];
+//$days = [7, 1];
 
-$period = CarbonPeriod::between(now(), now()->addMonths(3))->addFilter(function ($date) use ($days) {
-    return in_array($date->dayOfWeekIso, $days);
-});
+//$period = CarbonPeriod::between(now(), now()->addMonths(3))->addFilter(function ($date) use ($days) {
+//    return in_array($date->dayOfWeekIso, $days);
+//});
 
-    foreach ($period as  $date) {
-        echo $date->addDay();
-    }
+//    foreach ($period as  $date) {
+//        echo $date->addDay();
+//    }
 
     //return Station::whereDoesntHave('lines', function($query) use ($line){
     //    $query->where('line_id', $line->id);
@@ -95,6 +95,7 @@ Route::prefix('admiral')->group(function () {
         Route::get('/{id}/stations', [LineController::class, 'stations'])->name('admiral-lines.stations');    
         Route::get('/{id}/stations/select', [LineController::class, 'select'])->name('admiral-lines.select');
         Route::get('/{id}/stations/order', [LineController::class, 'order'])->name('admiral-lines.order');
+        Route::get('/{id}/stations/return', [LineController::class, 'return'])->name('admiral-lines.return');
     });
 
     Route::prefix('timetables')->group(function () {

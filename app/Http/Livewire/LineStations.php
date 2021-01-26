@@ -34,6 +34,10 @@ class LineStations extends Component
 
     public function updatePrice()
     {
+        $this->validate([
+            'price' => ['required', 'integer'],
+        ]);
+
         $this->line->stations()->updateExistingPivot($this->editingPriceId, ['price' => $this->price]);
 
         $this->editingPriceId = "";
@@ -52,6 +56,10 @@ class LineStations extends Component
 
     public function updateTime()
     {
+        $this->validate([
+            'time' => ['required', 'integer'],
+        ]);
+
         $this->line->stations()->updateExistingPivot($this->editingTimeId, ['time' => $this->time]);
 
         $this->editingTimeId = "";
